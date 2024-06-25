@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lab.thelab.mapper.AnswerMapper">
+
+    <select id="queryAnswerList" resultType="Answer">
+             select * from answer
+    </select>
+
+    <select id="queryAnswerById" resultType="Answer">
+        select * from answer where aid=#{aid}
+    </select>
+
+    <insert id="addAnswer" parameterType="Answer">
+        insert into answer (aid,acontent,apeople,atime)
+        values (#{aid},#{acontent},#{apeople},#{atime})
+    </insert>
+    <update id="updateAnswer" parameterType="Answer">
+        update plan set wid=#{wid},content=#{content},people=#{people},tim=#{tim},wcontent=#{wcontent},applicant=#{applicant},wtime=#{wtime} where pid = #{pid}
+    </update>
+
+    <delete id="deleteAnswer" parameterType="String">
+        delete from answer where aid =#{aid}
+    </delete>
+
+
+</mapper>

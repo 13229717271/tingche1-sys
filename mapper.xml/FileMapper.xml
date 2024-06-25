@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lab.thelab.mapper.FileMapper">
+
+    <select id="queryFileList" resultType="File">
+             select * from file
+    </select>
+
+
+    <insert id="addFile" parameterType="File">
+        insert into file (fid,stuno,password,stuname,major,dep,classname,grade,phone,email,lab)
+        values (#{fid},#{stuno},#{password},#{stuname},#{major},#{dep},#{classname},#{grade},#{phone},#{email},#{lab})
+    </insert>
+
+    <delete id="deleteFile" parameterType="String">
+        delete from file where fid=#{fid}
+    </delete>
+
+    <update id="updateFile" parameterType="File">
+        update file set fid=#{fid},stuno=#{stuno},password=#{password},stuname=#{stuname},major=#{major},dep=#{dep},classname=#{classname},grade=#{grade},phone=#{phone},email=#{email},lab=#{lab} where fid = #{fid}
+    </update>
+
+    <select id="queryFileById" resultType="File">
+        select * from file where fid=#{fid}
+    </select>
+</mapper>
